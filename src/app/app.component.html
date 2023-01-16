@@ -1,0 +1,56 @@
+<app-auth></app-auth>
+<br><br>
+<h2>Interpolation Binding</h2>
+<h3>{{name}}</h3>
+<br><br>
+<h2>Property Binding</h2>
+<input [disabled] = "disable" [value]="name"/>
+<br><br>
+<button (click)="onClick()">Enable Input Box</button>
+<br><br>
+<h2>Event Binding</h2>
+<button (click)="onGreet()">Greet</button>
+<br><br>
+<h3></h3>
+<br><br>
+Applied Attribute Directive to Event Binding 
+<h3 [appColorMe] = "colour">{{greet}}</h3>
+<br><br>
+<h2>Data Sharing between components</h2>
+  <app-tour (newData)="sendData($event)"></app-tour>
+  <!-- {{biodataa}} -->
+   <ul>
+    <li>
+        <label>Name:</label>{{ biodataa[0].name}}
+    </li>
+    <li>
+        <label>Age:</label>  {{ biodataa[0].age}}
+      </li>
+      <li>
+        <label>Job:</label>{{ biodataa[0].job}}
+      </li>
+  </ul>   
+  <ul>
+    <li>
+        <label>Name:</label>{{ biodataa[1].name}}
+    </li>
+    <li>
+        <label>Age:</label>  {{ biodataa[1].age}}
+      </li>
+      <li>
+        <label>Job:</label>{{ biodataa[1].job}}
+      </li>
+  </ul>   
+  <br><br>
+  <app-childa [toChilda] = "biodataa"></app-childa>
+  <br>
+  <br>
+  <h2>Structural Directive ----- ngIf</h2>
+  <br><br>
+  <div *ngIf="courses.length>0; then listCourses else noCourses"></div>
+ <ng-template #listCourses>
+     List of courses
+ </ng-template>
+ <ng-template #noCourses>   
+     No courses
+</ng-template>
